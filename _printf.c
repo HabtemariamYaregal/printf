@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	struct convert f_list[] = {
 		{"c", p_char},
 		{"s", p_string},
-		//{"%", p_percent},
 		{NULL, NULL}
 	};
 	va_list ap;
@@ -56,7 +55,6 @@ int _switch(const char *format, struct convert f_list[], va_list ap)
 }
 int p_string(va_list ap)
 {
-	char c;
 	char *strg;
 	int i = 0, len = 0;
 
