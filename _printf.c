@@ -48,6 +48,6 @@ int _printf(const char *format, ...)
 			break;	}
 		j++;
 	}
-	printf("\n%d\n", i);
 	va_end(ap);
+	return (i);
 }
