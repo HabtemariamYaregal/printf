@@ -5,12 +5,14 @@
 /**
  * _printf - print spesified taypes of data.
  * @format: contain data format of individual argument.
+ * struct convert - stricture.
  *
  * Return: Number of charactors printed.
  */
 int _printf(const char *format, ...)
 {
 	int print_len;
+	/*convert f_list - convert*/
 	struct convert f_list[] = {
 		{"c", p_char},
 		{"s", p_string},
@@ -27,9 +29,20 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (print_len);
 }
-int _switch(const char *format, struct convert f_list[], va_list ap)
+
+/**
+ * _switch - print spesified taypes of data.
+ * @format: contain data format of individual argument.
+ * @f_list: function list
+ * @ap: va_list'
+ *
+ * Return: Number of charactors printed.
+ */
+
+int _switch(const char *format, conv f_list[], va_list ap)
 {
 	int i, j, prt;
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -53,6 +66,14 @@ int _switch(const char *format, struct convert f_list[], va_list ap)
 	}
 	return (prt);
 }
+
+/**
+ * p_string - print spesified taypes of data.
+ * @ap: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
 int p_string(va_list ap)
 {
 	char *strg;
@@ -66,6 +87,13 @@ int p_string(va_list ap)
 	}
 	return (len);
 }
+/**
+ * p_char - print spesified taypes of data.
+ * @ap: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
 int p_char(va_list ap)
 {
 	char c;

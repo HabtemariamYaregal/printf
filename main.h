@@ -7,6 +7,7 @@ struct convert{
         char *str;
         int (*fun)(va_list);
 };
+typedef struct convert conv;
 
 int _putchar(char c);
 int p_char(va_list ap);
