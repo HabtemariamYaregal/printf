@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -17,6 +20,10 @@ int _printf(const char *format, ...)
 		{"c", p_char},
 		{"s", p_string},
 		{"%", p_percent},
+		{"o", p_octal},
+		{"u", p_decimal},
+		{"x", p_hexd},
+		{"X", p_heXd},
 		{NULL, NULL}
 	};
 	va_list ap;
@@ -126,5 +133,135 @@ int p_percent(__attribute__((unused))va_list list)
 
 	len += _putchar('%');
 	return (len);
+}
+/**
+ * p_octal - print spesified taypes of data.
+ * @ap: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
+int p_octal(va_list ap)
+{
+	int num, plen = 0, j, size = 0, en, i = 0;
+	int *s;
+
+	num = va_arg(ap, int);
+	if (num < 0)
+		num = num * -1;
+
+	j = num;
+	while (j != 0)
+	{
+		j = j / 10;
+		size++;
+	}
+	s = (int *)malloc(sizeof(int) * size + 1);
+	while (num >= 8)
+	{
+		s[i] = num % 8;
+		num = num / 8;
+		i++;
+	}
+	s[i] = num;
+	while (i >= 0)
+	{
+		plen += _putchar(s[i] + '0');
+		i--;
+	}
+	free (s);
+	return (plen);
+}
+int p_decimal(va_list bp)
+{
+	int i = 0, j = 0, ilen = 0;
+	unsigned int num, *v, size;
+
+	num = va_arg(bp, unsigned int);
+	if (num < 0)
+	{
+		num = UINT_MAX - num + 1;
+	}
+	size = num;
+	while (size != 0)
+	{
+		size /= 10;
+		j++;
+	}
+	v = (int *)malloc(sizeof(int) * j);
+	while (num >= 9)
+	{
+		v[i] = num % 10;
+		num /= 10;
+		i++;
+	}
+	v[i] = num;
+	while (i >= 0)
+	{
+		ilen += _putchar(v[i] + '0');
+		i--;
+	}
+	free (v);
+	return (ilen);
+}
+int p_heXd(va_list hp)
+{
+	static char Representation[] = "0123456789ABCDEF";
+	int num, temp, hlen = 0, i = 0, j = 0;
+	char *heX;
+
+	num = va_arg(hp, int);
+	temp = num;
+	
+	while (temp != 0)
+	{
+		temp /= 16;
+		j++;
+	}
+	heX = (char *)malloc(sizeof(char) * j);
+	while (num >= 15)
+	{
+		heX[i] = Representation[num % 16];
+		num /= 16;
+		i++;
+	}
+	heX[i] = Representation[num];
+	while (i >= 0)
+	{
+		hlen += _putchar(heX[i]);
+		i--;
+	}
+	free(heX);
+	return (hlen);
+}
+int p_hexd(va_list hp)
+{
+        static char Representation[] = "0123456789abcdef";
+        int num, temp, hlen = 0, i = 0, j = 0;
+        char *hex;
+
+        num = va_arg(hp, int);
+        temp = num;
+
+        while (temp != 0)
+        {
+                temp /= 16;
+                j++;
+        }
+        hex = (char *)malloc(sizeof(char) * j + 1);
+        while (num >= 15)
+        {
+                hex[i] = Representation[num % 16];
+                num /= 16;
+                i++;
+        }
+        hex[i] = Representation[num];
+        while (i >= 0)
+        {
+                hlen += _putchar(hex[i]);
+                i--;
+        }
+        free(hex);
+        return (hlen);
 }
 
