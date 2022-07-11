@@ -143,7 +143,7 @@ int p_percent(__attribute__((unused))va_list list)
 
 int p_octal(va_list ap)
 {
-	int num, plen = 0, j, size = 0, en, i = 0;
+	int num, plen = 0, j, size = 0, i = 0;
 	int *s;
 
 	num = va_arg(ap, int);
@@ -174,14 +174,10 @@ int p_octal(va_list ap)
 }
 int p_decimal(va_list bp)
 {
-	int i = 0, j = 0, ilen = 0;
-	unsigned int num, *v, size;
+	int *v, i = 0, j = 0, ilen = 0;
+	unsigned int num, size;
 
 	num = va_arg(bp, unsigned int);
-	if (num < 0)
-	{
-		num = UINT_MAX - num + 1;
-	}
 	size = num;
 	while (size != 0)
 	{
