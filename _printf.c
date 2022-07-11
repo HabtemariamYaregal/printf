@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	struct convert f_list[] = {
 		{"c", p_char},
 		{"s", p_string},
+		{"%", p_percent},
 		{NULL, NULL}
 	};
 	va_list ap;
@@ -41,7 +42,7 @@ int _printf(const char *format, ...)
 
 int _switch(const char *format, conv f_list[], va_list ap)
 {
-	int i, j, prt;
+	int i, j, prt, print_no;
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -51,20 +52,30 @@ int _switch(const char *format, conv f_list[], va_list ap)
 			{
 				if (format[i + 1] == f_list[j].str[0])
 				{
-					prt += f_list[j].fun(ap);
+					prt = f_list[j].fun(ap);
+					if (prt == -1)
+						return (-1);
+					print_no += prt;
 					break;
 				}
 			}
-			if (f_list[j].str == NULL)
+			if (f_list[j].str == NULL && format[j + 1] != ' ')
 			{
-				_putchar(format[i]);
+				if (format[i + 1] != '\0')
+				{
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+					print_no += 2;
+				}
+				else
+					return (-1);
 			}
 			i++;
 		}
 		else
-			prt += _putchar(format[i]);
+			print_no += _putchar(format[i]);
 	}
-	return (prt);
+	return (print_no);
 }
 
 /**
@@ -103,5 +114,17 @@ int p_char(va_list ap)
 	len += _putchar(c);
 	return (len);
 }
+/**
+ * p_percent - print spesified taypes of data.
+ * @list: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+int p_percent(__attribute__((unused))va_list list)
+{
+	int len = 0;
 
+	len += _putchar('%');
+	return (len);
+}
 
