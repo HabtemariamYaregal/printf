@@ -21,7 +21,7 @@ int p_nonp(va_list ap)
 		if (s[i] <= 32 || s[i] >= 127)
 		{
 			k = s[i];
-			nlen += _putchar('/');
+			nlen += _putchar('\');
 			nlen += _putchar('x');
 			if (k <= 16)
 			{
