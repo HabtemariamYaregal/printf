@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * p_string - print spesified taypes of data.
+ * p_nonp - print spesified taypes of data.
  * @ap: contain data format of individual argument.
  *
  * Return: Number of charactors printed.
