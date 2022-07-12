@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 	struct convert f_list[] = {
 				{"c", p_char},
 				{"s", p_string},
+				{"S", p_nonp},
 				{"%", p_percent},
 				/*{"d", p_num},*/
 				/*{"i", p_num},*/

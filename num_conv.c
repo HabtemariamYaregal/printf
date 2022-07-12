@@ -107,7 +107,7 @@ int p_heXd(va_list hp)
 		j++;
 	}
 	heX = (char *)malloc(sizeof(char) * j);
-	while (num >= 15)
+	while (num >= 16)
 	{
 		heX[i] = Representation[num % 16];
 		num /= 16;
@@ -142,7 +142,7 @@ int p_hexd(va_list hp)
 		j++;
 	}
 	hex = (char *)malloc(sizeof(char) * j + 1);
-	while (num >= 15)
+	while (num >= 16)
 	{
 		hex[i] = Representation[num % 16];
 		num /= 16;
