@@ -18,7 +18,7 @@ int p_nonp(va_list ap)
 	s = va_arg(ap, char*);
 	while (s[i] != '\0')
 	{
-		if (s[i] <= 32 || s[i] >= 127)
+		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
 		{
 			k = s[i];
 			nlen += _putchar('\\');
@@ -30,7 +30,7 @@ int p_nonp(va_list ap)
 			}
 			if (k > 16)
 			{
-				while (k >= 16)
+				while (k > 16)
 				{
 					hex[j] = Representation[k % 16];
 					k /= 16;
@@ -50,6 +50,13 @@ int p_nonp(va_list ap)
 	}
 	return (nlen);
 }
+/**
+ * p_string - print spesified taypes of data.
+ * @ap: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
 int p_string(va_list ap)
 {
 	char *strg;
