@@ -24,6 +24,7 @@ struct convert f_list[] = {
 {"i", p_num},
 {"o", p_octal},
 {"u", p_decimal},
+{"b", print_int_binary},
 {"x", p_hexd},
 {"X", p_heXd},
 {NULL, NULL}

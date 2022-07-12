@@ -11,8 +11,11 @@ typedef struct convert conv;
 
 int _putchar(char c);
 int p_char(va_list ap);
+int p_numbers(va_list ap);
 int p_string(va_list ap);
 int p_percent(va_list);
+int print_int_binary(va_list ap);
+void print_binary(unsigned int n, unsigned int *printed);
 int p_octal(va_list ap);
 int p_decimal(va_list bp);
 int p_hexd(va_list hp);
