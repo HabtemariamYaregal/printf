@@ -20,6 +20,8 @@ struct convert f_list[] = {
 {"c", p_char},
 {"s", p_string},
 {"%", p_percent},
+{"d", p_num},
+{"i", p_num},
 {"o", p_octal},
 {"u", p_decimal},
 {"x", p_hexd},
