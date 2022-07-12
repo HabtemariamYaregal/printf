@@ -21,9 +21,9 @@ struct convert f_list[] = {
 {"s", p_string},
 {"%", p_percent},
 {"o", p_octal},
-/**{"u", p_decimal},
+{"u", p_decimal},
 {"x", p_hexd},
-{"X", p_heXd},*/
+{"X", p_heXd},
 {NULL, NULL}
 };
 va_list ap;
