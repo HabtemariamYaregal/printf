@@ -10,7 +10,7 @@
  */
 int p_nonp(va_list ap)
 {
-	static const char Representation[] = "013456789ABCDEF";
+	static const char Representation[] = "0123456789ABCDEF";
 	char *s;
 	int i = 0, j = 0, k, nlen;
 	int hex[2];
@@ -21,12 +21,12 @@ int p_nonp(va_list ap)
 		if (s[i] <= 32 || s[i] >= 127)
 		{
 			k = s[i];
-			nlen += _putchar('\');
+			nlen += _putchar('\\');
 			nlen += _putchar('x');
 			if (k <= 16)
 			{
 				nlen += _putchar('0');
-				nlen += Representation[k % 16];
+				nlen += _putchar(Representation[k]);
 			}
 			if (k > 16)
 			{
@@ -44,7 +44,8 @@ int p_nonp(va_list ap)
 				}
 			}
 		}
-		nlen += _putchar(s[i]);
+		else
+			nlen += _putchar(s[i]);
 		i++;
 	}
 	return (nlen);
