@@ -9,7 +9,7 @@
 int main(void)
 {
     int j, k;
-    j = _printf("ytl%cml%xlg   k%s", 'B', 10865, "stSchool");
+    j = _printf("ytl%cml%ulg   k%s", 'B', -10, "stSchool");
     k = printf("ytl%cml%Xlg   k%s", 'B', 10865, "stSchool");
     printf("\n%d %d", j, k);
     return (0);
