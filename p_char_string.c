@@ -120,17 +120,17 @@ int p_nonp(va_list ap)
 int p_string(va_list ap)
 {
 	char *strg;
-	int i = 0, len = 0;
+	int i = 0;
 
 	strg = va_arg(ap, char*);
 	if (strg == NULL)
 		strg = "(null)";
 	while (strg[i] != '\0')
 	{
-	len += _putchar(strg[i]);
-	i++;
+		_putchar(strg[i]);
+		i++;
 	}
-	return (len);
+	return (i);
 }
 /**
  * p_char - print spesified taypes of data.
