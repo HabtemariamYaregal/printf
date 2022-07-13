@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 				{"c", p_char},
 				{"s", p_string},
 				{"S", p_nonp},
+				/*{"p", p_hexd},*/
 				{"%", p_percent},
 				/*{"d", p_num},*/
 				/*{"i", p_num},*/
@@ -26,6 +27,7 @@ int _printf(const char *format, ...)
 				/*{"b", print_int_binary},*/
 				{"x", p_hexd},
 				{"X", p_heXd},
+				{"R", rot13},
 				{NULL, NULL}
 				};
 	va_list ap;

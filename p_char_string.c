@@ -1,7 +1,41 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdint.h>
+#include <limits.h>
 #include "main.h"
 
+/**
+ * rot13 - print spesified taypes of data.
+ * @rp: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
+int rot13(va_list rp)
+{
+	int i, x;
+	char *str;
+	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	str = va_arg(rp, char *);
+	if (str == NULL)
+		return (-1);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (x = 0; x <= 52; x++)
+		{
+			if (str[i] == s[x])
+			{
+				_putchar(u[x]);
+				break;
+			}
+		}
+		if (x == 53)
+			_putchar(str[i]);
+	}
+	return (i);
+}
 /**
  * p_nonp - print spesified taypes of data.
  * @ap: contain data format of individual argument.

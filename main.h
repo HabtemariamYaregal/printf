@@ -21,6 +21,7 @@ int p_decimal(va_list bp);
 int p_hexd(va_list hp);
 int p_heXd(va_list hp);
 int p_nonp(va_list ap);
+int rot13(va_list rp);
 int _switch(const char *format, struct convert f_list[], va_list ap);
 int _printf(const char *format, ...);
 #endif
