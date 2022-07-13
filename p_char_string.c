@@ -74,6 +74,8 @@ int p_nonp(va_list ap)
 	int hex[2];
 
 	s = va_arg(ap, char*);
+	if (s == NULL)
+		return (-1);
 	while (s[i] != '\0')
 	{
 		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
