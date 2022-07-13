@@ -5,7 +5,7 @@
 
 /**
  * p_pointer - print spesified taypes of data.
- * @pb: contain data format of individual argument.
+ * @pb: contain data fotrmat of individual argument.
  *
  * Return: Number of charactors printed.
  */
