@@ -2,8 +2,13 @@
 #define MAIN_H_
 
 #include <stdarg.h>
-
-struct convert{
+/**
+ * struct convert - holds conversion letters.
+ * @str: The operator
+ * @fun: The function associated
+ */
+struct convert
+{
 char *str;
 int (*fun)(va_list);
 };
