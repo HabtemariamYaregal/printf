@@ -170,4 +170,3 @@ int p_hexd(va_list hp)
 	free(hex);
 	return (hlen);
 }
-

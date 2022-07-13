@@ -17,7 +17,7 @@ conv f_list[] = {
 {"c", p_char},
 {"s", p_string},
 {"S", p_nonp},
-/*{"p", p_hexd},*/
+{"p", p_pointer},
 {"%", p_percent},
 {"r", p_reversed},
 /*{"d", p_num},*/

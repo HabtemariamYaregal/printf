@@ -87,7 +87,7 @@ int p_nonp(va_list ap)
 				nlen += _putchar(Representation[k]);	}
 			if (k > 16)
 			{
-				while (k > 16)
+				while (k >= 16)
 				{	hex[j] = Representation[k % 16];
 					k /= 16;
 					j++;	}
