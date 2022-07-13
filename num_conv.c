@@ -25,10 +25,13 @@ int p_percent(__attribute__((unused))va_list list)
 
 int p_octal(va_list ap)
 {
-	int num, plen = 0, j, size = 0, i = 0;
+	long int num, j;
+	int plen = 0, size = 0, i = 0;
 	int *s;
 
 	num = va_arg(ap, int);
+	if (num == '\0')
+		return (-1);
 	if (num < 0)
 		num = num * -1;
 	j = num;
@@ -96,10 +99,11 @@ int p_decimal(va_list bp)
 int p_heXd(va_list hp)
 {
 	static const char Representation[] = "0123456789ABCDEF";
-	int num, temp, hlen = 0, i = 0, j = 0;
+	long unsigned int num, temp;
+	int hlen = 0, i = 0, j = 0;
 	char *heX;
 
-	num = va_arg(hp, int);
+	num = va_arg(hp, unsigned int);
 	temp = num;
 	while (temp != 0)
 	{
@@ -131,10 +135,11 @@ int p_heXd(va_list hp)
 int p_hexd(va_list hp)
 {
 	static const char Representation[] = "0123456789abcdef";
-	int num, temp, hlen = 0, i = 0, j = 0;
+	long unsigned int num, temp;
+	int hlen = 0, i = 0, j = 0;
 	char *hex;
 
-	num = va_arg(hp, int);
+	num = va_arg(hp, unsigned int);
 	temp = num;
 	while (temp != 0)
 	{
