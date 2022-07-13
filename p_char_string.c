@@ -123,7 +123,8 @@ int p_string(va_list ap)
 	int i = 0, len = 0;
 
 	strg = va_arg(ap, char*);
-
+	if (strg == NULL)
+		strg = "(null)";
 	while (strg[i] != '\0')
 	{
 	len += _putchar(strg[i]);
@@ -141,9 +142,8 @@ int p_string(va_list ap)
 int p_char(va_list ap)
 {
 	char c;
-	int len = 0;
 
 	c = va_arg(ap, int);
-	len += _putchar(c);
-	return (len);
+	_putchar(c);
+	return (1);
 }
