@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
-#include <limits.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include "main.h"
 
 /**
@@ -13,19 +14,18 @@
 
 int p_reversed(va_list rp)
 {
-	char *str;
-	int i = 0, rlen = 0;
+	char *str, *ppt;
+	int rlen = 0;
 
 	str = va_arg(rp, char*);
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	while (i >= 0)
-	{
-		rlen += _putchar(str[i]);
-		i--;
-	}
+	if (str == NULL)
+		return (-1);
+	ppt = rev_string(str);
+	if (ppt == NULL)
+		return (-1);
+	for (rlen = 0; ppt[rlen] != '\0'; rlen++)
+		_putchar(ppt[rlen]);
+	free(ppt);
 	return (rlen);
 }
 /**

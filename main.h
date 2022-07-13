@@ -23,6 +23,8 @@ int p_heXd(va_list hp);
 int p_nonp(va_list ap);
 int p_reversed(va_list rp);
 int rot13(va_list rp);
+char *rev_string(char *s);
+char *_memcpy(char *dest, char *src, unsigned int n);
 int _switch(const char *format, struct convert f_list[], va_list ap);
 int _printf(const char *format, ...);
 #endif
