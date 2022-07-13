@@ -70,8 +70,7 @@ int p_nonp(va_list ap)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	char *s;
-	int i = 0, j = 0, k, nlen;
-	int hex[2];
+	int i = 0, j = 0, k, nlen, hex[2];
 
 	s = va_arg(ap, char*);
 	if (s == NULL)
@@ -84,18 +83,14 @@ int p_nonp(va_list ap)
 			nlen += _putchar('\\');
 			nlen += _putchar('x');
 			if (k <= 16)
-			{
-				nlen += _putchar('0');
-				nlen += _putchar(Representation[k]);
-			}
+			{	nlen += _putchar('0');
+				nlen += _putchar(Representation[k]);	}
 			if (k > 16)
 			{
 				while (k > 16)
-				{
-					hex[j] = Representation[k % 16];
+				{	hex[j] = Representation[k % 16];
 					k /= 16;
-					j++;
-				}
+					j++;	}
 				hex[j] = Representation[k];
 				while (j >= 0)
 				{
