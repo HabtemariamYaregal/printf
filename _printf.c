@@ -6,7 +6,6 @@
 /**
  * _printf - print spesified taypes of data.
  * @format: contain data format of individual argument.
- * struct convert - stricture.
  *
  * Return: Number of charactors printed.
  */
@@ -14,7 +13,7 @@ int _printf(const char *format, ...)
 {
 int print_len;
 /*convert f_list - convert*/
-struct convert f_list[] = {
+cinv f_list[] = {
 {"c", p_char},
 {"s", p_string},
 {"S", p_nonp},
