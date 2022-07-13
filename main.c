@@ -9,10 +9,18 @@
  */
 int main(void)
 {
-	int a = 10;
-	void *len = &a;
+	int len, len2;
+	void *p = (void *)0x7fff5100b6f8;
 
-	_printf("%p", len);
+	len = _printf("Can you print an address?\n%p\nNice!\n", p);
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }
 
