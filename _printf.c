@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 int print_len;
 /*convert f_list - convert*/
-cinv f_list[] = {
+conv f_list[] = {
 {"c", p_char},
 {"s", p_string},
 {"S", p_nonp},
