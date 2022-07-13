@@ -5,6 +5,30 @@
 #include "main.h"
 
 /**
+ * p_reversed - print spesified taypes of data.
+ * @rp: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+
+int p_reversed(va_list rp)
+{
+	char *str;
+	int i = 0, rlen = 0;
+
+	str = va_arg(rp, char*);
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	while (i >= 0)
+	{
+		rlen += _putchar(str[i]);
+		i--;
+	}
+	return (rlen);
+}
+/**
  * rot13 - print spesified taypes of data.
  * @rp: contain data format of individual argument.
  *

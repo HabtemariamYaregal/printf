@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 				{"S", p_nonp},
 				/*{"p", p_hexd},*/
 				{"%", p_percent},
+				{"r", p_reversed},
 				/*{"d", p_num},*/
 				/*{"i", p_num},*/
 				{"o", p_octal},
