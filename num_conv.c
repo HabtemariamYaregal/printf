@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -25,15 +26,16 @@ int p_percent(__attribute__((unused))va_list list)
 
 int p_octal(va_list ap)
 {
-	long int num, j;
+	unsigned long int num, j;
 	int plen = 0, size = 0, i = 0;
 	int *s;
 
-	num = va_arg(ap, int);
-	if (num == '\0')
-		return (-1);
-	if (num < 0)
-		num = num * -1;
+	num = va_arg(ap, unsigned int);
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	j = num;
 	while (j != 0)
 	{
@@ -41,6 +43,8 @@ int p_octal(va_list ap)
 		size++;
 	}
 	s = (int *)malloc(sizeof(int) * size + 1);
+	if (s == NULL)
+		return (-1);
 	while (num >= 8)
 	{
 		s[i] = num % 8;
@@ -75,6 +79,8 @@ int p_decimal(va_list bp)
 		j++;
 	}
 	v = (int *)malloc(sizeof(int) * j);
+	if (v == NULL)
+		return (-1);
 	while (num >= 9)
 	{
 		v[i] = num % 10;
@@ -99,7 +105,7 @@ int p_decimal(va_list bp)
 int p_heXd(va_list hp)
 {
 	static const char Representation[] = "0123456789ABCDEF";
-	long unsigned int num, temp;
+	unsigned long int num, temp;
 	int hlen = 0, i = 0, j = 0;
 	char *heX;
 
@@ -111,6 +117,8 @@ int p_heXd(va_list hp)
 		j++;
 	}
 	heX = (char *)malloc(sizeof(char) * j);
+	if (heX == NULL)
+		return (-1);
 	while (num >= 16)
 	{
 		heX[i] = Representation[num % 16];
@@ -135,7 +143,7 @@ int p_heXd(va_list hp)
 int p_hexd(va_list hp)
 {
 	static const char Representation[] = "0123456789abcdef";
-	long unsigned int num, temp;
+	unsigned long int num, temp;
 	int hlen = 0, i = 0, j = 0;
 	char *hex;
 
