@@ -14,6 +14,7 @@ int p_pointer(va_list pb)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int num, temp;
+	char *hex;
 	int i = 0, j = 0, plen = 0;
 
 	num = va_arg(pb, unsigned long int);
