@@ -132,7 +132,7 @@ int p_string(va_list psp, flag *f)
 }
 /**
  * p_char - print spesified taypes of data.
- * @psp: contain data format of individual argument.
+ * @pcp: contain data format of individual argument.
  * @f: flag.
  *
  * Return: Number of charactors printed.

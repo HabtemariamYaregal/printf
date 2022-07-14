@@ -1,5 +1,5 @@
 #include "main.h"
- /**
+/**
  * p_percent - print spesified taypes of data.
  * @list: contain data format of individual argument.
  * @f: flag pointer.

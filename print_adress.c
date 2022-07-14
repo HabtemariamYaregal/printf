@@ -2,6 +2,7 @@
 /**
  * p_pointer - print spesified taypes of data.
  * @ptp: contain data fotrmat of individual argument.
+ * @f: flag arg
  *
  * Return: Number of charactors printed.
  */
@@ -19,7 +20,7 @@ int p_pointer(va_list ptp, flag *f)
 	teemp = nuum;
 	while (teemp != 0)
 	{
-		temp /= 16;
+		teemp /= 16;
 		j++;
 	}
 	hexx = (char *)malloc(sizeof(char) * j + 1);
