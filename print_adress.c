@@ -1,17 +1,15 @@
 #include "main.h"
-
 /**
  * p_pointer - print spesified taypes of data.
  * @pb: contain data fotrmat of individual argument.
  *
  * Return: Number of charactors printed.
  */
-
 int p_pointer(va_list pb, flag *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int num, temp;
-	char *hex;
+	char *hexx;
 	int i = 0, j = 0, plen = 0;
 	(void)f;
 
@@ -24,21 +22,20 @@ int p_pointer(va_list pb, flag *f)
 		temp /= 16;
 		j++;
 	}
-	hex = (char *)malloc(sizeof(char) * j + 1);
+	hexx = (char *)malloc(sizeof(char) * j + 1);
 	while (num >= 16)
 	{
-		hex[i] = Representation[num % 16];
+		hexx[i] = Representation[num % 16];
 		num /= 16;
 		i++;
 	}
-	hex[i] = Representation[num];
+	hexx[i] = Representation[num];
 	plen += _puts("0x");
 	while (i >= 0)
 	{
-		plen += _putchar(hex[i]);
+		plen += _putchar(hexx[i]);
 		i--;
 	}
-	free(hex);
+	free(hexx);
 	return (plen);
 }
-
