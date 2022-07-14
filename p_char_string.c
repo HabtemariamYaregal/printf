@@ -10,14 +10,14 @@
 
 int p_reversed(va_list prp, flag *f)
 {
-	char *str, *ppt;
+	char *sttr, *ppt;
 	int rlen = 0;
 	(void)f;
 
-	str = va_arg(prp, char*);
-	if (str == NULL)
+	sttr = va_arg(prp, char*);
+	if (sttr == NULL)
 		return (-1);
-	ppt = rev_string(str);
+	ppt = rev_string(sttr);
 	if (ppt == NULL)
 		return (-1);
 	for (rlen = 0; ppt[rlen] != '\0'; rlen++)
