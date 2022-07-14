@@ -1,6 +1,19 @@
 #include "main.h"
 #include <stdlib.h>
 /**
+ * p_percent - print spesified taypes of data.
+ * @list: contain data format of individual argument.
+ *
+ * Return: Number of charactors printed.
+ */
+int p_percent(__attribute__((unused))va_list list)
+{
+	int len = 0;
+
+	len += _putchar('%');
+	return (len);
+}
+/**
  * _memcpy - copy memory area
  * @dest: Destination for copying
  * @src: Source to copy from

@@ -3,20 +3,6 @@
 #include <stdlib.h>
 #include <limits.h>
 #include "main.h"
-
-/**
- * p_percent - print spesified taypes of data.
- * @list: contain data format of individual argument.
- *
- * Return: Number of charactors printed.
- */
-int p_percent(__attribute__((unused))va_list list)
-{
-	int len = 0;
-
-	len += _putchar('%');
-	return (len);
-}
 /**
  * p_octal - print spesified taypes of data.
  * @ap: contain data format of individual argument.

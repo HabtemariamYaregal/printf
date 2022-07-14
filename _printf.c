@@ -20,8 +20,8 @@ conv f_list[] = {
 {"p", p_pointer},
 {"%", p_percent},
 {"r", p_reversed},
-/*{"d", p_num},*/
-/*{"i", p_num},*/
+{"d", p_intiger},
+{"i", p_intiger},
 {"o", p_octal},
 {"u", p_decimal},
 /*{"b", print_int_binary},*/
