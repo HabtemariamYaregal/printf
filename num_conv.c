@@ -7,58 +7,58 @@
  * Return: Number of charactors printed.
  */
 
-int p_octal(va_list ap, flag *f)
+int p_octal(va_list pop, flag *f)
 {
-	unsigned long int num, j;
+	unsigned long int num1, j;
 	int plen = 0, size = 0, i = 0;
-	int *s;
+	int *sv;
 	(void)f;
 
-	num = va_arg(ap, unsigned int);
-	if (num == 0)
+	num1 = va_arg(pop, unsigned int);
+	if (num1 == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	j = num;
+	j = num1;
 	while (j != 0)
 	{
 		j = j / 10;
 		size++;
 	}
-	s = (int *)malloc(sizeof(int) * size + 1);
-	if (s == NULL)
+	sv = (int *)malloc(sizeof(int) * size + 1);
+	if (sv == NULL)
 		return (-1);
-	while (num >= 8)
+	while (num1 >= 8)
 	{
-		s[i] = num % 8;
-		num = num / 8;
+		sv[i] = num1 % 8;
+		num1 = num1 / 8;
 		i++;
 	}
-	s[i] = num;
+	sv[i] = num1;
 	while (i >= 0)
 	{
-		plen += _putchar(s[i] + '0');
+		plen += _putchar(sv[i] + '0');
 		i--;
 	}
-	free(s);
+	free(sv);
 	return (plen);
 }
 /**
  * p_decimal - print spesified taypes of data.
- * @bp: contain data format of individual argument.
+ * @bpp: contain data format of individual argument.
  * @f: flag.
  *
  * Return: Number of charactors printed.
  */
-int p_decimal(va_list bp, flag *f)
+int p_decimal(va_list bpp, flag *f)
 {
 	int *v, i = 0, j = 0, ilen = 0;
-	unsigned int num, size;
+	unsigned int num2, size;
 	(void)f;
 
-	num = va_arg(bp, unsigned int);
-	size = num;
+	num2 = va_arg(bpp, unsigned int);
+	size = num2;
 	while (size != 0)
 	{
 		size /= 10;
@@ -67,13 +67,13 @@ int p_decimal(va_list bp, flag *f)
 	v = (int *)malloc(sizeof(int) * j);
 	if (v == NULL)
 		return (-1);
-	while (num >= 9)
+	while (num2 >= 9)
 	{
-		v[i] = num % 10;
-		num /= 10;
+		v[i] = num2 % 10;
+		num2 /= 10;
 		i++;
 	}
-	v[i] = num;
+	v[i] = num2;
 	while (i >= 0)
 	{
 		ilen += _putchar(v[i] + '0');
@@ -84,36 +84,36 @@ int p_decimal(va_list bp, flag *f)
 }
 /**
  * p_heXd - print spesified taypes of data.
- * @hp: contain data format of individual argument.
+ * @php: contain data format of individual argument.
  * @f: flag pointer.
  *
  * Return: Number of charactors printed.
  */
-int p_heXd(va_list hp, flag *f)
+int p_heXd(va_list php, flag *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
-	unsigned long int num, temp;
+	unsigned long int num3, temp2;
 	int hlen = 0, i = 0, j = 0;
 	char *heX;
 	(void)f;
 
-	num = va_arg(hp, unsigned int);
-	temp = num;
-	while (temp != 0)
+	num3 = va_arg(php, unsigned int);
+	temp2 = num3;
+	while (temp2 != 0)
 	{
-		temp /= 16;
+		temp2 /= 16;
 		j++;
 	}
 	heX = (char *)malloc(sizeof(char) * j);
 	if (heX == NULL)
 		return (-1);
-	while (num >= 16)
+	while (num3 >= 16)
 	{
-		heX[i] = Representation[num % 16];
-		num /= 16;
+		heX[i] = Representation[num3 % 16];
+		num3 /= 16;
 		i++;
 	}
-	heX[i] = Representation[num];
+	heX[i] = Representation[num3];
 	while (i >= 0)
 	{
 		hlen += _putchar(heX[i]);
@@ -124,34 +124,34 @@ int p_heXd(va_list hp, flag *f)
 }
 /**
  * p_hexd - print spesified taypes of data.
- * @hp: contain data format of individual argument.
+ * @hpp: contain data format of individual argument.
  * @f: flag pointer.
  *
  * Return: Number of charactors printed.
  */
-int p_hexd(va_list hp, flag *f)
+int p_hexd(va_list hpp, flag *f)
 {
 	static const char Representation[] = "0123456789abcdef";
-	unsigned long int num, temp;
+	unsigned long int numm, temmp;
 	int hlen = 0, i = 0, j = 0;
 	char *hex;
 	(void)f;
 
-	num = va_arg(hp, unsigned int);
-	temp = num;
-	while (temp != 0)
+	numm = va_arg(hpp, unsigned int);
+	temmp = numm;
+	while (temmp != 0)
 	{
-		temp /= 16;
+		temmp /= 16;
 		j++;
 	}
 	hex = (char *)malloc(sizeof(char) * j + 1);
-	while (num >= 16)
+	while (numm >= 16)
 	{
-		hex[i] = Representation[num % 16];
-		num /= 16;
+		hex[i] = Representation[numm % 16];
+		numm /= 16;
 		i++;
 	}
-	hex[i] = Representation[num];
+	hex[i] = Representation[numm];
 	while (i >= 0)
 	{
 	hlen += _putchar(hex[i]);
