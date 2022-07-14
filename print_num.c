@@ -1,45 +1,45 @@
 #include "main.h"
 /**
  * p_intiger - print spesified taypes of data.
- * @ip: contain data format of individual argument.
+ * @iip: contain data format of individual argument.
  * @f: flag;
  *
  * Return: Number of charactors printed.
  */
 
-int p_intiger(va_list ip, flag *f)
+int p_intiger(va_list iip, flag *f)
 {
-	int no, ilen = 0, i = 0, j = 0, temp;
+	int no, ilen = 0, i = 0, j = 0, ttemp;
 	char *p;
-	unsigned int num;
+	unsigned int nnum;
 
-	no = va_arg(ip, int);
+	no = va_arg(iip, int);
 	if (f->space == 1 && f->plus == 0 && no >= 0)
 		ilen += _putchar(' ');
 	if (f->plus == 1 && no >= 0)
 		ilen += _putchar('+');
 	if (no < 0)
 	{
-		num = no * -1;
+		nnum = no * -1;
 		ilen += _putchar('-');
 	}
 	else
-		num = no;
-	if (num == 0)
+		nnum = no;
+	if (nnum == 0)
 		ilen += _putchar('0');
-	temp = num;
-	while (temp != 0)
+	ttemp = nnum;
+	while (ttemp != 0)
 	{
-		temp /= 10;
+		ttemp /= 10;
 		j++;
 	}
 	p = (char *)malloc(sizeof(char) * j + 1);
 	if (p == NULL)
 		return (-1);
-	while (num != 0)
+	while (nnum != 0)
 	{
-		p[i] = (num % 10) + '0';
-		num /= 10;
+		p[i] = (nnum % 10) + '0';
+		nnum /= 10;
 		i++;
 	}	i--;
 	while (i >= 0)
