@@ -14,7 +14,7 @@ int p_octal(va_list ocp, flag *f)
 	int *sv;
 
 	num1 = va_arg(ocp, unsigned int);
-	if (f->hash == 1)
+	if (f->hash == 1 && num1 > 0)
 		plen += _putchar('0');
 	if (num1 == 0)
 	{
@@ -98,7 +98,7 @@ int p_heXd(va_list php, flag *f)
 	char *heX;
 
 	num3 = va_arg(php, unsigned int);
-	if (f->hash == 1)
+	if (f->hash == 1 && num3 > 0)
 	{
 		hlen += _putchar('0');
 		hlen += _putchar('X');
@@ -142,7 +142,7 @@ int p_hexd(va_list hpp, flag *f)
 	char *hex;
 
 	numm = va_arg(hpp, unsigned int);
-	if (f->hash == 1)
+	if (f->hash == 1 && numm > 0)
 	{
 		hlen += _putchar('0');
 		hlen += _putchar('x');
