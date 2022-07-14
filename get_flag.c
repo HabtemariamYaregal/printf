@@ -1,17 +1,17 @@
 #include "main.h"
 /**
  * get_flag - print spesified taypes of data.
- * @s: contain data format of individual argument.
+ * @z: contain data format of individual argument.
  * @f: flag;
  *
  * Return: Number of charactors printed.
  */
 
-int get_flag(char s, flag *f)
+int get_flag(char z, flag *f)
 {
 	int i = 0;
 
-	switch (s)
+	switch (z)
 	{
 		case '+':
 			f->plus = 1;
