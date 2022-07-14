@@ -17,7 +17,6 @@ int p_intiger(va_list ip)
 	unsigned int num;
 
 	no = va_arg(ip, int);
-	temp = num;
 	if (no < 0)
 	{
 		num = no * -1;
@@ -27,6 +26,7 @@ int p_intiger(va_list ip)
 		num = no;
 	if (num == 0)
 		ilen += _putchar('0');
+	temp = num;
 	while (temp != 0)
 	{
 		temp /= 10;
