@@ -15,7 +15,7 @@ int p_octal(va_list ocp, flag *f)
 
 	num1 = va_arg(ocp, unsigned int);
 	if (f->hash == 1)
-		plen += _putchar('0'i);
+		plen += _putchar('0');
 	if (num1 == 0)
 	{
 		_putchar('0');
