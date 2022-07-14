@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <limits.h>
 #include "main.h"
 /**
  * p_intiger - print spesified taypes of data.
