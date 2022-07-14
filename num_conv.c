@@ -12,9 +12,10 @@ int p_octal(va_list ocp, flag *f)
 	unsigned long int num1, j;
 	int plen = 0, size = 0, i = 0;
 	int *sv;
-	(void)f;
 
 	num1 = va_arg(ocp, unsigned int);
+	if (f->hash == 1 && num >= 0)
+		plen += _putchar('0'i);
 	if (num1 == 0)
 	{
 		_putchar('0');
@@ -95,9 +96,13 @@ int p_heXd(va_list php, flag *f)
 	unsigned long int num3, temp2;
 	int hlen = 0, i = 0, j = 0;
 	char *heX;
-	(void)f;
 
 	num3 = va_arg(php, unsigned int);
+	if (f->hash == 1 && num3 >= 0)
+	{
+		hlen += _putchar('0');
+		hlen += _putchar('X');
+	}
 	temp2 = num3;
 	while (temp2 != 0)
 	{
@@ -135,9 +140,13 @@ int p_hexd(va_list hpp, flag *f)
 	unsigned long int numm, temmp;
 	int hlen = 0, i = 0, j = 0;
 	char *hex;
-	(void)f;
 
 	numm = va_arg(hpp, unsigned int);
+	if (f->hash == 1 && numm >= 0)
+	{
+		hlen += _putchar('0');
+		hlen += _putchar('x');
+	}
 	temmp = numm;
 	while (temmp != 0)
 	{
