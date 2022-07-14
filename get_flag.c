@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdlib.h>
 /**
  * get_flag - print spesified taypes of data.
  * @s: contain data format of individual argument.
