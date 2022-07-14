@@ -30,6 +30,7 @@ int p_reversed(va_list rp);
 int rot13(va_list rp);
 int _putchar(char c);
 int _puts(char *str);
+int p_intiger(va_list ip);
 int p_pointer(va_list pb);
 char *rev_string(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
