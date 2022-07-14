@@ -1,20 +1,20 @@
 #include "main.h"
 /**
  * p_octal - print spesified taypes of data.
- * @ap: contain data format of individual argument.
+ * @ocp: contain data format of individual argument.
  * @f: flag.
  *
  * Return: Number of charactors printed.
  */
 
-int p_octal(va_list pop, flag *f)
+int p_octal(va_list ocp, flag *f)
 {
 	unsigned long int num1, j;
 	int plen = 0, size = 0, i = 0;
 	int *sv;
 	(void)f;
 
-	num1 = va_arg(pop, unsigned int);
+	num1 = va_arg(ocp, unsigned int);
 	if (num1 == 0)
 	{
 		_putchar('0');
