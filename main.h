@@ -1,7 +1,10 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
+#include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <limits.h>
 /**
  * struct flag_char - holds conversion letters.
  * @space: space flag
