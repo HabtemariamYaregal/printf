@@ -30,12 +30,13 @@ conv f_list[] = {
 {"R", rot13},
 {NULL, NULL}
 };
+flag flags = {0, 0, 0};
 va_list ap;
 if (format == NULL)
 return (-1);
 va_start(ap, format);
 /*Calling _switch  function*/
-print_len = _switch(format, f_list, ap);
+print_len = _switch(format, f_list, ap, flags);
 va_end(ap);
 return (print_len);
 }

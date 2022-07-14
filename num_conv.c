@@ -6,15 +6,17 @@
 /**
  * p_octal - print spesified taypes of data.
  * @ap: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
 
-int p_octal(va_list ap)
+int p_octal(va_list ap, flag *f)
 {
 	unsigned long int num, j;
 	int plen = 0, size = 0, i = 0;
 	int *s;
+	(void)f;
 
 	num = va_arg(ap, unsigned int);
 	if (num == 0)
@@ -49,13 +51,15 @@ int p_octal(va_list ap)
 /**
  * p_decimal - print spesified taypes of data.
  * @bp: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
-int p_decimal(va_list bp)
+int p_decimal(va_list bp, flag *f)
 {
 	int *v, i = 0, j = 0, ilen = 0;
 	unsigned int num, size;
+	(void)f;
 
 	num = va_arg(bp, unsigned int);
 	size = num;
@@ -85,15 +89,17 @@ int p_decimal(va_list bp)
 /**
  * p_heXd - print spesified taypes of data.
  * @hp: contain data format of individual argument.
+ * @f: flag pointer.
  *
  * Return: Number of charactors printed.
  */
-int p_heXd(va_list hp)
+int p_heXd(va_list hp, flag *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int num, temp;
 	int hlen = 0, i = 0, j = 0;
 	char *heX;
+	(void)f;
 
 	num = va_arg(hp, unsigned int);
 	temp = num;
@@ -123,15 +129,17 @@ int p_heXd(va_list hp)
 /**
  * p_hexd - print spesified taypes of data.
  * @hp: contain data format of individual argument.
+ * @f: flag pointer.
  *
  * Return: Number of charactors printed.
  */
-int p_hexd(va_list hp)
+int p_hexd(va_list hp, flag *f)
 {
 	static const char Representation[] = "0123456789abcdef";
 	unsigned long int num, temp;
 	int hlen = 0, i = 0, j = 0;
 	char *hex;
+	(void)f;
 
 	num = va_arg(hp, unsigned int);
 	temp = num;

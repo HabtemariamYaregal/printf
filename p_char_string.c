@@ -8,14 +8,16 @@
 /**
  * p_reversed - print spesified taypes of data.
  * @rp: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
 
-int p_reversed(va_list rp)
+int p_reversed(va_list rp, flag *f)
 {
 	char *str, *ppt;
 	int rlen = 0;
+	(void)f;
 
 	str = va_arg(rp, char*);
 	if (str == NULL)
@@ -31,16 +33,18 @@ int p_reversed(va_list rp)
 /**
  * rot13 - print spesified taypes of data.
  * @rp: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
 
-int rot13(va_list rp)
+int rot13(va_list rp, flag *f)
 {
 	int i, x;
 	char *str;
 	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	(void)f;
 
 	str = va_arg(rp, char *);
 	if (str == NULL)
@@ -63,14 +67,16 @@ int rot13(va_list rp)
 /**
  * p_nonp - print spesified taypes of data.
  * @ap: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
-int p_nonp(va_list ap)
+int p_nonp(va_list ap, flag *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	char *s;
 	int i = 0, j = 0, k, nlen, hex[2];
+	(void)f;
 
 	s = va_arg(ap, char*);
 	if (s == NULL)
@@ -108,15 +114,17 @@ int p_nonp(va_list ap)
 /**
  * p_string - print spesified taypes of data.
  * @ap: contain data format of individual argument.
+ * @f: flag argument.
  *
  * Return: Number of charactors printed.
  */
 
-int p_string(va_list ap)
+int p_string(va_list ap, flag *f)
 {
 	char *strg;
 	int i = 0;
 
+	(void)f;
 	strg = va_arg(ap, char*);
 	if (strg == NULL)
 		strg = "(null)";
@@ -130,13 +138,15 @@ int p_string(va_list ap)
 /**
  * p_char - print spesified taypes of data.
  * @ap: contain data format of individual argument.
+ * @f: flag.
  *
  * Return: Number of charactors printed.
  */
 
-int p_char(va_list ap)
+int p_char(va_list ap, flag *f)
 {
 	char c;
+	(void)f;
 
 	c = va_arg(ap, int);
 	_putchar(c);

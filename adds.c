@@ -3,12 +3,14 @@
 /**
  * p_percent - print spesified taypes of data.
  * @list: contain data format of individual argument.
+ * @f: flag pointer.
  *
  * Return: Number of charactors printed.
  */
-int p_percent(__attribute__((unused))va_list list)
+int p_percent(__attribute__((unused))va_list list, flag *f)
 {
 	int len = 0;
+	(void)f;
 
 	len += _putchar('%');
 	return (len);

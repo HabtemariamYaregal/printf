@@ -6,17 +6,22 @@
 /**
  * p_intiger - print spesified taypes of data.
  * @ip: contain data format of individual argument.
+ * @f: flag;
  *
  * Return: Number of charactors printed.
  */
 
-int p_intiger(va_list ip)
+int p_intiger(va_list ip, flag *f)
 {
 	int no, ilen = 0, i = 0, j = 0, temp;
 	char *p;
 	unsigned int num;
 
 	no = va_arg(ip, int);
+	if (f->space == 1 && f->plus == 0 && no >= 0)
+		ilen += _putchar(' ');
+	if (f->plus == 1 && no >= 0)
+		ilen += _putchar('+');
 	if (no < 0)
 	{
 		num = no * -1;
@@ -40,8 +45,7 @@ int p_intiger(va_list ip)
 		p[i] = (num % 10) + '0';
 		num /= 10;
 		i++;
-	}
-	i--;
+	}	i--;
 	while (i >= 0)
 	{
 		ilen += _putchar(p[i]);

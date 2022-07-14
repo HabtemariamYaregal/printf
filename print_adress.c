@@ -10,12 +10,13 @@
  * Return: Number of charactors printed.
  */
 
-int p_pointer(va_list pb)
+int p_pointer(va_list pb, flag *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int num, temp;
 	char *hex;
 	int i = 0, j = 0, plen = 0;
+	(void)f;
 
 	num = va_arg(pb, unsigned long int);
 	if (!num)
