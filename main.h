@@ -46,7 +46,7 @@ int p_heXd(va_list php, flag *f);
 int p_nonp(va_list pnp, flag *f);
 int p_reversed(va_list prp, flag *f);
 int rot13(va_list rop, flag *f);
-int get_flag(char s, flag *f);
+int get_flag(char z, flag *f);
 int _puts(char *str);
 int p_intiger(va_list iip, flag *f);
 int p_pointer(va_list ptp, flag *f);
