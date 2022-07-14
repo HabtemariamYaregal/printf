@@ -12,7 +12,7 @@
 
 int _switch(const char *format, conv f_list[], va_list ap, flag flags)
 {
-	int i, j, prt, printed_no, get;
+	int i, j, prt, printed_no;
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -23,8 +23,7 @@ int _switch(const char *format, conv f_list[], va_list ap, flag flags)
 		if (format[i] == '%')
 		{
 			i++;
-		get = get_flag(format[i], &flags);
-		if (get == 1)
+		while (get_flag(format[i], &flags))
 			i++;
 		for (j = 0; f_list[j].str != NULL; j++)
 		{
