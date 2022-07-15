@@ -22,16 +22,12 @@ int p_octal(va_list ocp, flag *f)
 	if (f->hash == 1 && num1 > 0)
 		plen += _putchar('0');
 	if (num1 == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
+	{	_putchar('0');
+		return (1);	}
 	j = num1;
 	while (j != 0)
-	{
-		j = j / 10;
-		size++;
-	}
+	{	j = j / 10;
+		size++;	}
 	sv = (int *)malloc(sizeof(int) * size + 1);
 	if (sv == NULL)
 		return (-1);
@@ -70,6 +66,9 @@ int p_decimal(va_list bpp, flag *f)
 	else
 		num2 = va_arg(bpp, unsigned int);
 	size = num2;
+	if (size == 0)
+	{	_putchar('0');
+		return (1);	}
 	while (size != 0)
 	{
 		size /= 10;
@@ -119,11 +118,12 @@ int p_heXd(va_list php, flag *f)
 		hlen += _putchar('X');
 	}
 	temp2 = num3;
+	if (temp2 == 0)
+	{	_putchar('0');
+		return (1);	}
 	while (temp2 != 0)
-	{
-		temp2 /= 16;
-		j++;
-	}
+	{	temp2 /= 16;
+		j++;	}
 	heX = (char *)malloc(sizeof(char) * j);
 	if (heX == NULL)
 		return (-1);
@@ -162,25 +162,23 @@ int p_hexd(va_list hpp, flag *f)
 		numm = va_arg(hpp, unsigned int);
 	else
 		numm = va_arg(hpp, unsigned int);
-	numm = va_arg(hpp, unsigned int);
 	if (f->hash == 1 && numm > 0)
 	{
 		hlen += _putchar('0');
 		hlen += _putchar('x');
 	}
 	temmp = numm;
+	if (temmp == 0)
+	{	_putchar('0');
+		return (1);	}
 	while (temmp != 0)
-	{
-		temmp /= 16;
-		j++;
-	}
+	{	temmp /= 16;
+		j++;	}
 	hex = (char *)malloc(sizeof(char) * j + 1);
 	while (numm >= 16)
-	{
-		hex[i] = Representation[numm % 16];
+	{	hex[i] = Representation[numm % 16];
 		numm /= 16;
-		i++;
-	}
+		i++;	}
 	hex[i] = Representation[numm];
 	while (i >= 0)
 	{
