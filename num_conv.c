@@ -60,10 +60,15 @@ int p_octal(va_list ocp, flag *f)
 int p_decimal(va_list bpp, flag *f)
 {
 	int *v, i = 0, j = 0, ilen = 0;
-	unsigned int num2, size;
+	unsigned long int num2, size;
 	(void)f;
 
-	num2 = va_arg(bpp, unsigned int);
+	if (f->lng == 1)
+		num2 = va_arg(bpp, unsigned long int);
+	else if (f->shrt == 1)
+		num2 = va_arg(bpp, unsigned int);
+	else
+		num2 = va_arg(bpp, unsigned int);
 	size = num2;
 	while (size != 0)
 	{
