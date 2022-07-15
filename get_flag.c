@@ -25,6 +25,14 @@ int get_flag(char z, flag *f)
 			f->hash = 1;
 			i = 1;
 			break;
+		case 'l':
+			f->lng = 1;
+			i = 1;
+			break;
+		case 'h':
+			f->shrt = 1;
+			i = 1;
+			break;
 	}
 	return (i);
 }

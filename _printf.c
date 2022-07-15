@@ -27,7 +27,7 @@ conv f_list[] = {
 {"R", rot13},
 {NULL, NULL}
 };
-flag flags = {0, 0, 0};
+flag flags = {0, 0, 0, 0, 0};
 va_list ap;
 if (format == NULL)
 return (-1);

@@ -17,6 +17,8 @@ struct flag_char
 	int space;
 	int plus;
 	int hash;
+	int lng;
+	int shrt;
 };
 typedef struct flag_char flag;
 /**
