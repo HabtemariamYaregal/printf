@@ -24,6 +24,8 @@ int p_pointer(va_list ptp, flag_t *f)
 		j++;
 	}
 	hexx = (char *)malloc(sizeof(char) * j + 1);
+	if (hexx == NULL)
+		return (-1);
 	while (nuum >= 16)
 	{
 		hexx[i] = Representation[nuum % 16];
