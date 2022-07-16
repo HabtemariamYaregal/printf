@@ -49,3 +49,43 @@ int p_intiger(va_list iip, flag_t *f)
 	free(p);
 	return (ilen);
 }
+/**
+ * p_binary - print spesified taypes of data.
+ * @bnp: contain data format of individual argument.
+ * @f: flag;
+ *
+ * Return: Number of charactors printed.
+ */
+int p_binary(va_list bnp, flag_t *f)
+{
+	char *bn;
+	unsigned int num, n;
+	int i = 0, j, k, len = 0;
+	(void)f;
+
+	num = va_arg(bnp, unsigned int);
+	n = num;
+	if (num == 0)
+	{
+		len += _putchar('0');
+		return (len);
+	}
+	while (n > 0)
+	{
+		n = n / 2;
+		k++;
+	}
+	bn = (char *)malloc(sizeof(char) * k);
+	if (bn == NULL)
+		return (-1);
+	while (num > 0)
+	{
+		bn[i] = (num % 2) + '0';
+		num = num / 2;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+		len += _putchar(bn[j]);
+	free(bn);
+	return (len);
+}

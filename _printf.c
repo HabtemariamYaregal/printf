@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{"i", p_intiger},
 		{"o", p_octal},
 		{"u", p_decimal},
-		/*{"b", print_int_binary},*/
+		{"b", p_binary},
 		{"x", p_hexd},
 		{"X", p_heXd},
 		{"R", rot13},

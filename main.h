@@ -35,6 +35,7 @@ struct convert
 typedef struct convert conver_t;
 
 int _putchar(char c);
+int p_binary(va_list bnp, flag_t *f);
 int p_char(va_list pcp, flag_t *f);
 int p_numbers(va_list vap, flag_t *f);
 int p_string(va_list psp, flag_t *f);
