@@ -36,6 +36,16 @@ int _switch(const char *format, conver_t f_list[], va_list ap, flag_t flags)
 				break;
 			}
 		}
+		if (f_list[j].str == NULL && format[i] != ' ')
+		{
+			if (format[i] != '\0')
+			{
+				printed_no += _putchar('%');
+				printed_no += _putchar(format[i]);
+			}
+			else
+				return (-1);
+		}
 		}
 		else
 			printed_no += _putchar(format[i]);
