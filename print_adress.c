@@ -8,7 +8,7 @@
  */
 int p_pointer(va_list ptp, flag_t *f)
 {
-	static const char Representation[] = "0123456789ABCDEF";
+	static const char Representation[] = "0123456789abcdef";
 	unsigned long int nuum, teemp;
 	char *hexx;
 	int i = 0, j = 0, plen = 0;
