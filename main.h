@@ -10,8 +10,9 @@
  * @space: space flag
  * @plus: plus flag
  * @hash: hash flag
+ * @lng: long int flag
+ * @shrt: short num flag
  */
-
 struct flag_char
 {
 	int space;
@@ -26,7 +27,6 @@ typedef struct flag_char flag;
  * @str: The operator
  * @fun: The function associated
  */
-
 struct convert
 {
 	char *str;
