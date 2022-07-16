@@ -6,7 +6,7 @@
  *
  * Return: Number of charactors printed.
  */
-int p_pointer(va_list ptp, flag *f)
+int p_pointer(va_list ptp, flag_t *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int nuum, teemp;

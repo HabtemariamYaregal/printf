@@ -21,7 +21,7 @@ struct flag_char
 	int lng;
 	int shrt;
 };
-typedef struct flag_char flag;
+typedef struct flag_char flag_t;
 /**
  * struct convert - holds conversion letters.
  * @str: The operator
@@ -30,30 +30,30 @@ typedef struct flag_char flag;
 struct convert
 {
 	char *str;
-	int (*fun)(va_list, flag *f);
+	int (*fun)(va_list, flag_t *f);
 };
-typedef struct convert conv;
+typedef struct convert conver_t;
 
 int _putchar(char c);
-int p_char(va_list pcp, flag *f);
-int p_numbers(va_list vap, flag *f);
-int p_string(va_list psp, flag *f);
-int p_percent(va_list, flag *f);
+int p_char(va_list pcp, flag_t *f);
+int p_numbers(va_list vap, flag_t *f);
+int p_string(va_list psp, flag_t *f);
+int p_percent(va_list, flag_t *f);
 int print_int_binary(va_list ap);
 void print_binary(unsigned int n, unsigned int *printed);
-int p_octal(va_list ocp, flag *f);
-int p_decimal(va_list dpp, flag *f);
-int p_hexd(va_list hpp, flag *f);
-int p_heXd(va_list php, flag *f);
-int p_nonp(va_list pnp, flag *f);
-int p_reversed(va_list prp, flag *f);
-int rot13(va_list rop, flag *f);
-int get_flag(char z, flag *f);
+int p_octal(va_list ocp, flag_t *f);
+int p_decimal(va_list dpp, flag_t *f);
+int p_hexd(va_list hpp, flag_t *f);
+int p_heXd(va_list php, flag_t *f);
+int p_nonp(va_list pnp, flag_t *f);
+int p_reversed(va_list prp, flag_t *f);
+int rot13(va_list rop, flag_t *f);
+int get_flag(char z, flag_t *f);
 int _puts(char *str);
-int p_intiger(va_list iip, flag *f);
-int p_pointer(va_list ptp, flag *f);
+int p_intiger(va_list iip, flag_t *f);
+int p_pointer(va_list ptp, flag_t *f);
 char *rev_string(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
-int _switch(const char *format, conv f_list[], va_list ap, flag flags);
+int _switch(const char *format, conver_t f_list[], va_list ap, flag_t flags);
 int _printf(const char *format, ...);
 #endif

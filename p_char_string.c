@@ -8,12 +8,12 @@
  * Return: Number of charactors printed.
  */
 
-int p_reversed(va_list prp, flag *f)
+int p_reversed(va_list prp, flag_t *f)
 {
 	char *sttr, *ppt;
 	int rlen = 0;
-	(void)f;
 
+	(void)f;
 	sttr = va_arg(prp, char*);
 	if (sttr == NULL)
 		return (-1);
@@ -33,7 +33,7 @@ int p_reversed(va_list prp, flag *f)
  * Return: Number of charactors printed.
  */
 
-int rot13(va_list rop, flag *f)
+int rot13(va_list rop, flag_t *f)
 {
 	int i, x;
 	char *strr;
@@ -66,7 +66,7 @@ int rot13(va_list rop, flag *f)
  *
  * Return: Number of charactors printed.
  */
-int p_nonp(va_list pnp, flag *f)
+int p_nonp(va_list pnp, flag_t *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	char *ss;
@@ -114,7 +114,7 @@ int p_nonp(va_list pnp, flag *f)
  * Return: Number of charactors printed.
  */
 
-int p_string(va_list psp, flag *f)
+int p_string(va_list psp, flag_t *f)
 {
 	char *strg;
 	int i = 0;
@@ -137,7 +137,7 @@ int p_string(va_list psp, flag *f)
  *
  * Return: Number of charactors printed.
  */
-int p_char(va_list pcp, flag *f)
+int p_char(va_list pcp, flag_t *f)
 {
 	char c;
 	(void)f;

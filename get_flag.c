@@ -7,7 +7,7 @@
  * Return: Number of charactors printed.
  */
 
-int get_flag(char z, flag *f)
+int get_flag(char z, flag_t *f)
 {
 	int i = 0;
 

@@ -9,8 +9,8 @@
 int _printf(const char *format, ...)
 {
 	int print_len;
-/*convert f_list - convert*/
-	conv f_list[] = {
+	/*convert f_list - convert*/
+	conver_t f_list[] = {
 		{"c", p_char},
 		{"s", p_string},
 		{"S", p_nonp},
@@ -27,8 +27,9 @@ int _printf(const char *format, ...)
 		{"R", rot13},
 		{NULL, NULL}
 		};
-	flag flags = {0, 0, 0, 0, 0};
+	flag_t flags = {0, 0, 0, 0, 0};
 	va_list ap;
+
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);

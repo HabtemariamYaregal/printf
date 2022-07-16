@@ -7,7 +7,7 @@
  * Return: Number of charactors printed.
  */
 
-int p_intiger(va_list iip, flag *f)
+int p_intiger(va_list iip, flag_t *f)
 {
 	long int no, ilen = 0, i = 0, j = 0, ttemp;
 	unsigned long int nnum;

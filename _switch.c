@@ -10,9 +10,9 @@
  * Return: Number of charactors printed.
  */
 
-int _switch(const char *format, conv f_list[], va_list ap, flag flags)
+int _switch(const char *format, conver_t f_list[], va_list ap, flag_t flags)
 {
-	int i, j, prt, printed_no;
+	int i, j, prt = 0, printed_no = 0;
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);

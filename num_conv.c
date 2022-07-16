@@ -7,7 +7,7 @@
  * Return: Number of charactors printed.
  */
 
-int p_octal(va_list ocp, flag *f)
+int p_octal(va_list ocp, flag_t *f)
 {
 	unsigned long int num1, j;
 	int plen = 0, size = 0, i = 0;
@@ -53,7 +53,7 @@ int p_octal(va_list ocp, flag *f)
  *
  * Return: Number of charactors printed.
  */
-int p_decimal(va_list bpp, flag *f)
+int p_decimal(va_list bpp, flag_t *f)
 {
 	int *v, i = 0, j = 0, ilen = 0;
 	unsigned long int num2, size;
@@ -99,7 +99,7 @@ int p_decimal(va_list bpp, flag *f)
  *
  * Return: Number of charactors printed.
  */
-int p_heXd(va_list php, flag *f)
+int p_heXd(va_list php, flag_t *f)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	unsigned long int num3, temp2;
@@ -149,7 +149,7 @@ int p_heXd(va_list php, flag *f)
  *
  * Return: Number of charactors printed.
  */
-int p_hexd(va_list hpp, flag *f)
+int p_hexd(va_list hpp, flag_t *f)
 {
 	static const char Representation[] = "0123456789abcdef";
 	unsigned long int numm, temmp;

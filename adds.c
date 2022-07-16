@@ -6,7 +6,7 @@
  *
  * Return: Number of charactors printed.
  */
-int p_percent(__attribute__((unused))va_list list, flag *f)
+int p_percent(__attribute__((unused))va_list list, flag_t *f)
 {
 	int len = 0;
 	(void)f;
@@ -23,11 +23,12 @@ int p_percent(__attribute__((unused))va_list list, flag *f)
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-unsigned int i;
-for (i = 0; i < n; i++)
-dest[i] = src[i];
-dest[i] = '\0';
-return (dest);
+	unsigned int i;
+	
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+		dest[i] = '\0';
+	return (dest);
 }
 /**
  * rev_string - reverses a string in place
@@ -37,21 +38,22 @@ return (dest);
  */
 char *rev_string(char *s)
 {
-int len;
-int head;
-char tmp;
-char *dest;
-for (len = 0; s[len] != '\0'; len++)
-{}
-dest = malloc(sizeof(char) * len + 1);
-if (dest == NULL)
-return (NULL);
-_memcpy(dest, s, len);
-for (head = 0; head < len; head++, len--)
-{
-tmp = dest[len - 1];
-dest[len - 1] = dest[head];
-dest[head] = tmp;
-}
-return (dest);
+	int len;
+	int head;
+	char tmp;
+	char *dest;
+
+	for (len = 0; s[len] != '\0'; len++)
+	{}
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+	_memcpy(dest, s, len);
+	for (head = 0; head < len; head++, len--)
+	{
+		tmp = dest[len - 1];
+		dest[len - 1] = dest[head];
+		dest[head] = tmp;
+	}
+	return (dest);
 }
