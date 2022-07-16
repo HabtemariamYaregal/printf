@@ -22,8 +22,8 @@ int p_octal(va_list ocp, flag_t *f)
 	if (f->hash == 1 && num1 > 0)
 		plen += _putchar('0');
 	if (num1 == 0)
-	{	_putchar('0');
-		return (1);	}
+	{	plen += _putchar('0');
+		return (plen);	}
 	j = num1;
 	while (j != 0)
 	{	j = j / 10;
@@ -67,8 +67,8 @@ int p_decimal(va_list bpp, flag_t *f)
 		num2 = va_arg(bpp, unsigned int);
 	size = num2;
 	if (size == 0)
-	{	_putchar('0');
-		return (1);	}
+	{	ilen += _putchar('0');
+		return (ilen);	}
 	while (size != 0)
 	{
 		size /= 10;
@@ -119,8 +119,8 @@ int p_heXd(va_list php, flag_t *f)
 	}
 	temp2 = num3;
 	if (temp2 == 0)
-	{	_putchar('0');
-		return (1);	}
+	{	hlen += _putchar('0');
+		return (hlen);	}
 	while (temp2 != 0)
 	{	temp2 /= 16;
 		j++;	}
@@ -169,8 +169,8 @@ int p_hexd(va_list hpp, flag_t *f)
 	}
 	temmp = numm;
 	if (temmp == 0)
-	{	_putchar('0');
-		return (1);	}
+	{	hlen += _putchar('0');
+		return (hlen);	}
 	while (temmp != 0)
 	{	temmp /= 16;
 		j++;	}

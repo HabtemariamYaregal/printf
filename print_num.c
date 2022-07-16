@@ -30,7 +30,7 @@ int p_intiger(va_list iip, flag_t *f)
 		nnum = no;
 	if (nnum == 0)
 	{	ilen += _putchar('0');
-		return (1);	}
+		return (ilen);	}
 	ttemp = nnum;
 	while (ttemp != 0)
 	{	ttemp /= 10;
