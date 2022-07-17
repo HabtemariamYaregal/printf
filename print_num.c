@@ -25,7 +25,12 @@ int p_intiger(va_list iip, flag_t *f, int width)
 	if (no == 0)
 		j = 1;
 	if (no < 0)
+	{
 		j++;
+		nnum = no * -1;
+		ilen += _putchar('-');	}
+	else
+		nnum = no;
 	if (f->dash != 1)
 	{
 		if (width > j)
@@ -34,11 +39,6 @@ int p_intiger(va_list iip, flag_t *f, int width)
 		ilen += _putchar(' ');
 	if (f->plus == 1 && no >= 0)
 		ilen += _putchar('+');
-	if (no < 0)
-	{	nnum = no * -1;
-		ilen += _putchar('-');	}
-	else
-		nnum = no;
 	ilen += print_numm(nnum);
 	if (f->dash == 1)
 	{
