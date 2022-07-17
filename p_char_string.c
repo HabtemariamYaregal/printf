@@ -123,19 +123,22 @@ int p_nonp(va_list pnp, flag_t *f, int width)
 int p_string(va_list psp, flag_t *f, int width)
 {
 	char *strg;
-	int i = 0;
+	int i = 0, j, len = 0;
 
 	(void)f;
-	(void)width;
 	strg = va_arg(psp, char*);
+	for (j = 0; strg[j] != '\0'; j++)
+	{}
+	if (width > j)
+		len += print_gap(j, width, f);	
 	if (strg == NULL)
 		strg = "(null)";
 	while (strg[i] != '\0')
 	{
-		_putchar(strg[i]);
+		len += _putchar(strg[i]);
 		i++;
 	}
-	return (i);
+	return (len);
 }
 /**
  * p_char - print spesified taypes of data.
@@ -148,10 +151,16 @@ int p_string(va_list psp, flag_t *f, int width)
 int p_char(va_list pcp, flag_t *f, int width)
 {
 	char c;
+	int len = 0, j;
 	(void)f;
-	(void)width;
 
 	c = va_arg(pcp, int);
-	_putchar(c);
-	return (1);
+	if (c == '\0')
+		j = 0;
+	else
+		j = 1;
+	if (width > 1)
+		len += print_gap(j, width, f);
+	len += _putchar(c);
+	return (len);
 }
