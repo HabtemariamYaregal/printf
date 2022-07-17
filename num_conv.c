@@ -11,7 +11,7 @@
 int p_octal(va_list ocp, flag_t *f, int width)
 {
 	unsigned long int num1, temp;
-	int plen = 0, i = 0, j;
+	int plen = 0, i = 0, j = 0;
 	int *sv;
 
 	if (f->lng == 1)

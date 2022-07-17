@@ -156,7 +156,7 @@ int p_char(va_list pcp, flag_t *f, int width)
 
 	c = va_arg(pcp, int);
 	if (c == '\0')
-		j = 0;
+		j = 1;
 	else
 		j = 1;
 	if (width > 1)
