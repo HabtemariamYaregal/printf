@@ -30,9 +30,6 @@ int p_octal(va_list ocp, flag_t *f, int width)
 		plen += print_gap(j, width, f);	}
 	if (f->hash == 1 && num1 > 0)
 		plen += _putchar('0');
-	if (num1 == 0)
-	{	plen += _putchar('0');
-		return (plen);	}
 	sv = (int *)malloc(sizeof(int) * j + 1);
 	if (sv == NULL)
 		return (-1);
@@ -77,9 +74,6 @@ int p_decimal(va_list bpp, flag_t *f, int width)
 	{
 		if (width > j)
 			ilen += print_gap(j, width, f);	}
-	if (num2 == 0)
-	{	ilen += _putchar('0');
-		return (ilen);	}
 	v = (int *)malloc(sizeof(int) * j);
 	if (v == NULL)
 		return (-1);
@@ -130,9 +124,6 @@ int p_heXd(va_list php, flag_t *f, int width)
 	{
 		if (width > j)
 			hlen += print_gap(j, width, f);	}
-	if (num3 == 0)
-	{	hlen += _putchar('0');
-		return (hlen);	}
 	heX = (char *)malloc(sizeof(char) * j);
 	if (heX == NULL)
 		return (-1);
@@ -181,9 +172,6 @@ int p_hexd(va_list hpp, flag_t *f, int width)
 	{
 		if (width > j)
 			hlen += print_gap(j, width, f);	}
-	if (numm == 0)
-	{	hlen += _putchar('0');
-		return (hlen);	}
 	hex = (char *)malloc(sizeof(char) * j + 1);
 	for ( ; numm >= 16; numm /= 16)
 	{	hex[i] = Representation[numm % 16];
