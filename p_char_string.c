@@ -67,7 +67,7 @@ int rot13(va_list rop, flag_t *f, int width)
  * p_nonp - print spesified taypes of data.
  * @pnp: contain data format of individual argument.
  * @f: flag.
- * @width.
+ * @width: width.
  *
  * Return: Number of charactors printed.
  */
@@ -115,7 +115,7 @@ int p_nonp(va_list pnp, flag_t *f, int width)
  * p_string - print spesified taypes of data.
  * @psp: contain data format of individual argument.
  * @f: flag argument.
- * @width.
+ * @width: width.
  *
  * Return: Number of charactors printed.
  */
@@ -129,8 +129,10 @@ int p_string(va_list psp, flag_t *f, int width)
 	strg = va_arg(psp, char*);
 	for (j = 0; strg[j] != '\0'; j++)
 	{}
-	if (width > j)
-		len += print_gap(j, width, f);	
+	if (f->dash != 1)
+	{
+		if (width > j)
+			len += print_gap(j, width, f);	}
 	if (strg == NULL)
 		strg = "(null)";
 	while (strg[i] != '\0')
@@ -138,6 +140,10 @@ int p_string(va_list psp, flag_t *f, int width)
 		len += _putchar(strg[i]);
 		i++;
 	}
+	if (f->dash == 1)
+	{
+		if (width > j)
+			len += print_gap(j, width, f);	}
 	return (len);
 }
 /**
@@ -159,8 +165,14 @@ int p_char(va_list pcp, flag_t *f, int width)
 		j = 1;
 	else
 		j = 1;
-	if (width > 1)
-		len += print_gap(j, width, f);
+	if (f->dash != 1)
+	{
+		if (width > 1)
+			len += print_gap(j, width, f);	}
 	len += _putchar(c);
+	if (f->dash == 1)
+	{
+		if (width > j)
+			len += print_gap(j, width, f);	}
 	return (len);
 }

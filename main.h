@@ -12,6 +12,8 @@
  * @hash: hash flag
  * @lng: long int flag
  * @shrt: short num flag
+ * @zero: zero flag
+ * @dash: width flag
  */
 struct flag_char
 {
@@ -20,6 +22,8 @@ struct flag_char
 	int hash;
 	int lng;
 	int shrt;
+	int zero;
+	int dash;
 };
 typedef struct flag_char flag_t;
 /**

@@ -24,8 +24,10 @@ int p_octal(va_list ocp, flag_t *f, int width)
 		j++;
 	if (num1 == 0)
 		j = 1;
-	if (width > j)
-		plen += print_gap(j, width, f);
+	if (f->dash != 1)
+	{
+		if (width > j)
+		plen += print_gap(j, width, f);	}
 	if (f->hash == 1 && num1 > 0)
 		plen += _putchar('0');
 	if (num1 == 0)
@@ -34,15 +36,16 @@ int p_octal(va_list ocp, flag_t *f, int width)
 	sv = (int *)malloc(sizeof(int) * j + 1);
 	if (sv == NULL)
 		return (-1);
-	while (num1 >= 8)
-	{
-		sv[i] = num1 % 8;
-		num1 = num1 / 8;
-		i++;
-	}
+	for ( ; num1 >= 8; num1 /= 8)
+	{	sv[i] = num1 % 8;
+		i++;	}
 	sv[i] = num1;
 	for ( ; i >= 0; i--)
 		plen += _putchar(sv[i] + '0');
+	if (f->dash == 1)
+	{
+		if (width > j)
+			plen += print_gap(j, width, f);	}
 	free(sv);
 	return (plen);
 }
@@ -70,8 +73,10 @@ int p_decimal(va_list bpp, flag_t *f, int width)
 		j++;
 	if (num2 == 0)
 		j = 1;
-	if (width > j)
-		ilen += print_gap(j, width, f);
+	if (f->dash != 1)
+	{
+		if (width > j)
+			ilen += print_gap(j, width, f);	}
 	if (num2 == 0)
 	{	ilen += _putchar('0');
 		return (ilen);	}
@@ -86,6 +91,10 @@ int p_decimal(va_list bpp, flag_t *f, int width)
 	v[i] = num2;
 	for (; i >= 0; i--)
 		ilen += _putchar(v[i] + '0');
+	if (f->dash == 1)
+	{
+		if (width > j)
+			ilen += print_gap(j, width, f);	}
 	free(v);
 	return (ilen);
 }
@@ -111,16 +120,16 @@ int p_heXd(va_list php, flag_t *f, int width)
 	else
 		num3 = va_arg(php, unsigned int);
 	if (f->hash == 1 && num3 > 0)
-	{
-		hlen += _putchar('0');
-		hlen += _putchar('X');
-	}
+	{	hlen += _putchar('0');
+		hlen += _putchar('X');	}
 	for (temp2 = num3; temp2 != 0; temp2 /= 16)
 		j++;
 	if (num3 == 0)
 		j = 1;
-	if (width > j)
-		hlen += print_gap(j, width, f);
+	if (f->dash != 1)
+	{
+		if (width > j)
+			hlen += print_gap(j, width, f);	}
 	if (num3 == 0)
 	{	hlen += _putchar('0');
 		return (hlen);	}
@@ -128,13 +137,15 @@ int p_heXd(va_list php, flag_t *f, int width)
 	if (heX == NULL)
 		return (-1);
 	for (; num3 >= 16; num3 /= 16)
-	{
-		heX[i] = Representation[num3 % 16];
-		i++;
-	}
+	{	heX[i] = Representation[num3 % 16];
+		i++;	}
 	heX[i] = Representation[num3];
 	for ( ; i >= 0; i--)
 		hlen += _putchar(heX[i]);
+	if (f->dash == 1)
+	{
+		if (width > j)
+			hlen += print_gap(j, width, f);	}
 	free(heX);
 	return (hlen);
 }
@@ -160,27 +171,30 @@ int p_hexd(va_list hpp, flag_t *f, int width)
 	else
 		numm = va_arg(hpp, unsigned int);
 	if (f->hash == 1 && numm > 0)
-	{
-		hlen += _putchar('0');
-		hlen += _putchar('x');
-	}
+	{	hlen += _putchar('0');
+		hlen += _putchar('x');	}
 	for (temmp = numm; temmp != 0; temmp /= 16)
 		j++;
 	if (numm == 0)
 		j = 1;
-	if (width > j)
-		hlen += print_gap(j, width, f);
+	if (f->dash != 1)
+	{
+		if (width > j)
+			hlen += print_gap(j, width, f);	}
 	if (numm == 0)
 	{	hlen += _putchar('0');
 		return (hlen);	}
 	hex = (char *)malloc(sizeof(char) * j + 1);
-	while (numm >= 16)
+	for ( ; numm >= 16; numm /= 16)
 	{	hex[i] = Representation[numm % 16];
-		numm /= 16;
 		i++;	}
 	hex[i] = Representation[numm];
 	for ( ; i >= 0; i--)
 		hlen += _putchar(hex[i]);
+	if (f->dash == 1)
+	{
+		if (width > j)
+			hlen += print_gap(j, width, f);	}
 	free(hex);
 	return (hlen);
 }

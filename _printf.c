@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		{"R", rot13},
 		{NULL, NULL}
 		};
-	flag_t flags = {0, 0, 0, 0, 0};
+	flag_t flags = {0, 0, 0, 0, 0, 0, 0};
 	va_list ap;
 
 	if (format == NULL)

@@ -33,6 +33,14 @@ int get_flag(char z, flag_t *f)
 			f->shrt = 1;
 			i = 1;
 			break;
+		case '0':
+			f->zero = 1;
+			i = 1;
+			break;
+		case '-':
+			f->dash = 1;
+			i = 1;
+			break;
 	}
 	return (i);
 }

@@ -24,7 +24,7 @@ int _switch(const char *format, conver_t f_list[], va_list ap, flag_t flags)
 		{	i++;
 			while (get_flag(format[i], &flags))
 				i++;
-			while ((format[i] >= '0' && format[i] <= '9') || format[i] == '*')
+			while ((format[i] >= '1' && format[i] <= '9') || format[i] == '*')
 			{
 				if (format[i] == '*')
 					k = va_arg(ap, int);
