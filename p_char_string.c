@@ -4,16 +4,18 @@
  * p_reversed - print spesified taypes of data.
  * @prp: contain data format of individual argument.
  * @f: flag.
+ * @width: width.
  *
  * Return: Number of charactors printed.
  */
 
-int p_reversed(va_list prp, flag_t *f)
+int p_reversed(va_list prp, flag_t *f, int width)
 {
 	char *sttr, *ppt;
 	int rlen = 0;
 
 	(void)f;
+	(void)width;
 	sttr = va_arg(prp, char*);
 	if (sttr == NULL)
 		return (-1);
@@ -29,17 +31,19 @@ int p_reversed(va_list prp, flag_t *f)
  * rot13 - print spesified taypes of data.
  * @rop: contain data format of individual argument.
  * @f: flag.
+ * @width: width.
  *
  * Return: Number of charactors printed.
  */
 
-int rot13(va_list rop, flag_t *f)
+int rot13(va_list rop, flag_t *f, int width)
 {
 	int i, x;
 	char *strr;
 	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	(void)f;
+	(void)width;
 
 	strr = va_arg(rop, char *);
 	if (strr == NULL)
@@ -63,15 +67,17 @@ int rot13(va_list rop, flag_t *f)
  * p_nonp - print spesified taypes of data.
  * @pnp: contain data format of individual argument.
  * @f: flag.
+ * @width.
  *
  * Return: Number of charactors printed.
  */
-int p_nonp(va_list pnp, flag_t *f)
+int p_nonp(va_list pnp, flag_t *f, int width)
 {
 	static const char Representation[] = "0123456789ABCDEF";
 	char *ss;
 	int i = 0, j = 0, k, nlen = 0, hex[2];
 	(void)f;
+	(void)width;
 
 	ss = va_arg(pnp, char*);
 	if (ss == NULL)
@@ -109,16 +115,18 @@ int p_nonp(va_list pnp, flag_t *f)
  * p_string - print spesified taypes of data.
  * @psp: contain data format of individual argument.
  * @f: flag argument.
+ * @width.
  *
  * Return: Number of charactors printed.
  */
 
-int p_string(va_list psp, flag_t *f)
+int p_string(va_list psp, flag_t *f, int width)
 {
 	char *strg;
 	int i = 0;
 
 	(void)f;
+	(void)width;
 	strg = va_arg(psp, char*);
 	if (strg == NULL)
 		strg = "(null)";
@@ -133,13 +141,15 @@ int p_string(va_list psp, flag_t *f)
  * p_char - print spesified taypes of data.
  * @pcp: contain data format of individual argument.
  * @f: flag.
+ * @width: width.
  *
  * Return: Number of charactors printed.
  */
-int p_char(va_list pcp, flag_t *f)
+int p_char(va_list pcp, flag_t *f, int width)
 {
 	char c;
 	(void)f;
+	(void)width;
 
 	c = va_arg(pcp, int);
 	_putchar(c);
